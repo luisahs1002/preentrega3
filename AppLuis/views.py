@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from AppLuis.models import * 
 from django.template import Template, loader
@@ -24,15 +24,32 @@ def clasificacion(request):
 
 def crear_piloto(request):
     if request.method == "POST":
-        piloto1 = Crear_piloto(request.POST)
-        if piloto1.is_valid():
-            info = piloto1.cleaned_data
-            piloto1 = Crear_piloto(nombre = info["nombre"], apellido = info["apellido"], edad= ["edad"], correo= info["correo"])
-            piloto1.save()
-            return render( request, "AppLuis/crear_piloto.html")
+        form = Crear_piloto( request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect("INICIO")
     else:
-        piloto1 = Crear_piloto()
-    return render( request , "AppLuis/crear_piloto.html", {"pilot1":piloto1})
+        form = Crear_piloto()
+
+    return render( request, "AppLuis/crear_piloto.html", {"piloto1":form})
+    
+def buscar_piloto(request):
+    return render( request,"AppLuis/buscar_piloto.html")
+        
+
+    
+def resultado_piloto(request):
+    if request.GET['nombre']:
+        nombre = request.GET['nombre']
+        piloto_name = Piloto.objects.filter(nombre__icontains=nombre)
+        return render(request, "AppLuis/resultadopiloto.html", {"valor_name" :nombre, "res" :piloto_name} )
+
+    return render( request, "AppLuis/resultadopiloto.html",)
+
+
+
+
+    
 
 
     
