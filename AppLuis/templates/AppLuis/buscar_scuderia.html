@@ -1,0 +1,8 @@
+{% extends "AppLuis/padre.html" %} {% load static %} {% block descripcion%}
+
+<form action="{% url 'RESULTADO_SCUDERIA' %}" method="GET">
+  <p>Scuderia:<input type="text" name="scuderia"> </p>
+  <input type="submit" value="confirmar">
+</form>
+
+{% endblock %}
