@@ -46,7 +46,8 @@ def resultado_piloto(request):
 
     return render( request, "AppLuis/resultadopiloto.html",)
 
-
+#aca en el resultado esta mi error , no me aparece el resultado y me sale este error de la clase piloto en donde
+#le di mil vueltas y aun haciendolo igual que el profe resultaba 
 
 
     
