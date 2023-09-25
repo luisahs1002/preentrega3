@@ -42,7 +42,7 @@ def resultado_piloto(request):
     if request.GET['nombre']:
         nombre = request.GET['nombre']
         piloto_name = Piloto.objects.filter(nombre__icontains=nombre)
-        return render(request, "AppLuis/resultadopiloto.html", {"valor_name" :nombre, "res" :piloto_name} )
+        return render(request, "AppLuis/resultadopiloto.html", {"valor_name" :nombre, "res" :piloto_name} )   
 
     return render( request, "AppLuis/resultadopiloto.html",)
 
