@@ -3,14 +3,14 @@ de la busqueda : {% endblock %} {% block descripcion%}
 
 {% if res2 %}
 <ul>
-  {% for equipo in res2 %}
-  <li> Nombre: {{scuderia}}</li>
+  {% for scuderia in res2 %}
+  <li> Nombre: {{scudieria.scuderia}}</li>
 
   {% endfor %}
 </ul>
  {% else %}
 
- <h3> ><p style="color: aliceblue;"> no hay resultados que coincidan con la busqueda</p> 
+ <h3> ><p style="color: aliceblue;"> no hay resultados que coincidan con la busquedaaaa</p> 
  {% endif %}
  {% endblock %}
 

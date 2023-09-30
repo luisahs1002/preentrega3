@@ -1,8 +1,15 @@
 {% extends "AppLuis/padre.html" %} {% load static %} {% block descripcion%}
 
 <form action="{% url 'RESULTADO_CLASIFICACION' %}" method="GET">
-  <p>Circuito:<input type="text" name="nombre_apellido" /></p>
-  <input type="submit" value="confirmar" />
+  <p>
+    Circuito:<input
+      type="text"
+      name="circuito"
+      <input
+      type="submit"
+      value="confirmar"
+    />
+  </p>
 </form>
 
 {% endblock %}
