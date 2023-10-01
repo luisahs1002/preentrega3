@@ -1,12 +1,10 @@
 {% extends "AppLuis/padre.html" %} {% load static %} {% block titulo %}
 CLASIFICACION {% endblock %} {% block descripcion %} ACA PODRAS VER LA QUALY DE
-LOS PARTICIPANTES {% endblock %} {% block descripcion2 %} {% if pilotos %}
+LOS PARTICIPANTES {% endblock %} {% block descripcion2 %} {% if clasificaciones %}
 
 <ul>
-  {% for piloto in pilotos %}
-  <li>
-    Circuito: {{clasificacion.circuito}} ----- tiempo : {{clasificacion.tiempo}}
-  </li>
+  {% for tiempo in clasificaciones %}
+  <li>Circuito: {{tiempo.circuito}} ----- tiempo : {{tiempo.tiempo}}</li>
 
   {% endfor %}
 </ul>

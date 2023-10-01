@@ -1,10 +1,14 @@
-{% extends "AppLuis/padre.html" %} {% load static %} {% block titulo%} resultado
-de la busqueda : {% endblock %} {% block descripcion%} 
+{% extends "AppLuis/padre.html" %} {% load static %} 
+{% block titulo%} 
+resultado de la busqueda : 
+{% endblock %}
+
+{% block descripcion%} 
 
 {% if res2 %}
 <ul>
-  {% for scuderia in res2 %}
-  <li> Nombre: {{scudieria.scuderia}}</li>
+  {% for marca in res2 %}
+  <li> Nombre: {{ marca.nombre}} </li> 
 
   {% endfor %}
 </ul>

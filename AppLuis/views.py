@@ -66,30 +66,26 @@ def resultado_scuderia(request):
     if request.GET['scuderia']:
         nombre = request.GET['scuderia']
         scuderia_name = Scuderia.objects.filter(scuderia__icontains=scuderia)
-        return render ( request, "AppLuis/resultado_scuderia.html", {"valor":nombre, "res2":scuderia_name})
-    return render( request, "AppLuis/resultado_scuderia.html")
+        return render ( request, "AppLuis/resultado_scuderia.html",{"Nombre":nombre, "res2":scuderia_name})
+   
+    return render( request, "AppLuis/resultado_scuderia.html",) 
 
-def equipos(request):
-    pass
+
 
 def buscar_clasificacion(request):
     return render(request, "AppLuis/buscar_clasificacion.html")
 
 def resultado_clasificacion(request):
-    if request.GET['nombre_apellido']:
-        nombre = request.GET['nombre_apellido']
-        form = Clasificacion.objects.filter(clasificacion__icontains=clasificacion)
-        return render (request,"AppLuis/resultado_clasificacion.html", {'valor':nombre, 'qualy':form})
+    if request.GET['tiempo']:
+        time = request.GET['tiempo']
+        form = Clasificacion.objects.filter(tiempo__icontains=tiempo)
+        return render (request,"AppLuis/resultado_clasificacion.html",{'valor':time, 'qualy':form})
     return render(request, "AppLuis/resultado_clasificacion.html")
 
-def CLASIFICACION(request):
-    all_clasificacion = Clasificacion.objects.all()
-    return render( request, "AppLuis/clasificacion.html", {'clasificaciones':all_clasificacion})
-#INICIO
+
+#INICIO/ALL
 def inicio(request):
     return render(request, "AppLuis/inicio.html")
-
-
 
 def scuderia(request):
     contexto = Scuderia.objects.all()
@@ -99,7 +95,8 @@ def circuito(request):
     return render(request, "AppLuis/circuito.html")
 
 def clasificacion(request):
-    return render(request, "AppLuis/clasificacion.html")
+    all_clasificacion = Clasificacion.objects.all()
+    return render( request, "AppLuis/clasificacion.html", {'clasificaciones':all_clasificacion})
 
 
 
