@@ -99,5 +99,6 @@ def clasificacion(request):
     return render( request, "AppLuis/clasificacion.html", {'clasificaciones':all_clasificacion})
 
 
+probando_actulizar_mi_repo = 5+5+5+5+
 
     
