@@ -22,9 +22,14 @@ urlpatterns = [
     path("buscar_clasificacion/", buscar_clasificacion, name="BUSCAR_CLASIFICACION"),
     
     #resultados urls
-    path("resultadopiloto",resultado_piloto, name="RESULTADO_PILOTO"),
+    path("resultadopiloto/",resultado_piloto, name="RESULTADO_PILOTO"),
     path("resultadoscuderia/",resultado_scuderia, name= "RESULTADO_SCUDERIA"),
     path("resultado_clasificacion/", resultado_clasificacion, name= "RESULTADO_CLASIFICACION"),
+
+    # delete urls
+    path("borrarpiloto/<nombre_piloto>/",eliminar_piloto,name="ELIMINAR_PILOTO"),
+    path("borrarscuderia/<nombre_scuderia>/",eliminar_scuderia,name="ELIMINAR_SCUDERIA"),
+
 
 
 

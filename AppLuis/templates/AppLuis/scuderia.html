@@ -7,13 +7,16 @@ Pagina de scuderia f1
 
 {% endblock %} 
 
-{% block descripcion2 %} Crea o ve las scuderias registradas 
+{% block descripcion2 %} 
+
+Crea o ve las scuderias registradas 
 
 {% if scuderias %}
 
 <ul>
   {% for equipos in scuderias %}
   <li> {{ equipos.scuderia}} </li>
+  <a class="btn btn-primary" href="{% url 'ELIMINAR_SCUDERIA' equipos.scuderia %}">Eliminar Scuderia</a>
 
   {% endfor %}
 </ul>

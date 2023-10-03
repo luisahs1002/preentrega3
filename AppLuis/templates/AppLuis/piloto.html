@@ -1,36 +1,26 @@
-{% extends "AppLuis/padre.html" %}
-{% load static %}
-
-{% block titulo %}
-
-Pagina de pilotos f1
-
-{% endblock %}
-
-{% block descripcion2 %}
-
-Crea o ve los pilotos registrados
-
-
-{% if pilotos %}
+{% extends "AppLuis/padre.html" %} {% load static %} {% block titulo %} Pagina
+de pilotos f1 {% endblock %} {% block descripcion2 %} Crea o ve los pilotos
+registrados {% if pilotos %}
 
 <ul>
   {% for piloto in pilotos %}
-  <li> Nombre: {{piloto.nombre}} ----- Apellido : {{piloto.apellido}} </li>
+  <li>Nombre: {{piloto.nombre}} ----- Apellido : {{piloto.apellido}}</li>
+  <a class="btn btn-primary" href="{% url 'ELIMINAR_PILOTO' piloto.nombre %}"
+    >Eliminar Piloto</a
+  >
 
   {% endfor %}
 </ul>
 {% else %}
 
-<h3> ><p style="color: aliceblue;"> no hay resultados que coincidan con la busqueda
-</p> 
-{% endif %}
-{% endblock %}
+<h3>
+  >
+  <p style="color: aliceblue">
+    no hay resultados que coincidan con la busqueda
+  </p>
+  {% endif %} {% endblock %} {% block url %}
 
+  <a class="btn btn-primary" href="{% url 'CREAR_PILOTO' %}">Crear Piloto</a>
 
-
-{% block url %}
-
-<a class="btn btn-primary" href="{% url 'CREAR_PILOTO' %}">Crear Piloto</a>
-
-{% endblock %}
+  {% endblock %}
+</h3>

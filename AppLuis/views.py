@@ -54,9 +54,7 @@ def resultado_piloto(request):
 
     return render( request, "AppLuis/resultadopiloto.html",)
 
-def piloto(request):
-    all_pilotos = Piloto.objects.all()
-    return render(request, "AppLuis/piloto.html", {'pilotos': all_pilotos})
+
 
 
 def buscar_scuderia(request):
@@ -65,27 +63,29 @@ def buscar_scuderia(request):
 def resultado_scuderia(request):
     if request.GET['scuderia']:
         nombre = request.GET['scuderia']
-        scuderia_name = Scuderia.objects.filter(scuderia__icontains=scuderia)
+        scuderia_name = Scuderia.objects.filter(scuderia__icontains=nombre)
         return render ( request, "AppLuis/resultado_scuderia.html",{"Nombre":nombre, "res2":scuderia_name})
    
     return render( request, "AppLuis/resultado_scuderia.html",) 
-
-
 
 def buscar_clasificacion(request):
     return render(request, "AppLuis/buscar_clasificacion.html")
 
 def resultado_clasificacion(request):
-    if request.GET['tiempo']:
-        time = request.GET['tiempo']
-        form = Clasificacion.objects.filter(tiempo__icontains=tiempo)
-        return render (request,"AppLuis/resultado_clasificacion.html",{'valor':time, 'qualy':form})
+    if request.GET['circuito']:
+        pista = request.GET['circuito']
+        form = Clasificacion.objects.filter(circuito__icontains=pista)
+        return render (request,"AppLuis/resultado_clasificacion.html",{'valor':pista, 'qualy':form})
     return render(request, "AppLuis/resultado_clasificacion.html")
 
 
 #INICIO/ALL
 def inicio(request):
     return render(request, "AppLuis/inicio.html")
+
+def piloto(request):
+    all_pilotos = Piloto.objects.all()
+    return render(request, "AppLuis/piloto.html", {'pilotos': all_pilotos})
 
 def scuderia(request):
     contexto = Scuderia.objects.all()
@@ -99,6 +99,18 @@ def clasificacion(request):
     return render( request, "AppLuis/clasificacion.html", {'clasificaciones':all_clasificacion})
 
 
-probando_actulizar_mi_repo = 5+5+5+5+
+# DELETE
+def eliminar_piloto(request, nombre_piloto):
+    piloto_escogido = Piloto.objects.get(nombre=nombre_piloto)
+    piloto_escogido.delete()
+    todos = Piloto.objects.all()
+    return render(request, "AppLuis/piloto.html", {'pilotos': todos})
+
+def eliminar_scuderia(request, nombre_scuderia):
+    scuderia_escogido = Scuderia.objects.get(nombre=nombre_scuderia)
+    scuderia_escogido.delete()
+    todos = Scuderia.objects.all()
+    return render(request, "AppLuis/scuderia.html", {'todos': todos})
+
 
     

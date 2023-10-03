@@ -1,20 +1,17 @@
-{% extends "AppLuis/padre.html" %} {% load static %} 
-{% block titulo%} 
-resultado de la busqueda : 
-{% endblock %}
-
-{% block descripcion%} 
-
-{% if res2 %}
+{% extends "AppLuis/padre.html" %} {% load static %} {% block titulo%} resultado
+de la busqueda : {% endblock %} {% block descripcion%} {% if res2 %}
 <ul>
   {% for marca in res2 %}
-  <li> Nombre: {{ marca.nombre}} </li> 
+  <li>Nombre: {{ marca.scuderia}}</li>
 
   {% endfor %}
 </ul>
- {% else %}
+{% else %}
 
- <h3> ><p style="color: aliceblue;"> no hay resultados que coincidan con la busquedaaaa</p> 
- {% endif %}
- {% endblock %}
-
+<h3>
+  >
+  <p style="color: aliceblue">
+    no hay resultados que coincidan con la busquedaaaa
+  </p>
+  {% endif %} {% endblock %}
+</h3>
