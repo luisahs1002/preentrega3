@@ -4,10 +4,19 @@ registrados {% if pilotos %}
 
 <ul>
   {% for piloto in pilotos %}
-  <li>Nombre: {{piloto.nombre}} ----- Apellido : {{piloto.apellido}}</li>
-  <a class="btn btn-primary" href="{% url 'ELIMINAR_PILOTO' piloto.nombre %}"
-    >Eliminar Piloto</a
-  >
+  <li>
+    Nombre: {{piloto.nombre}} ----- Apellido : {{piloto.apellido}}
+  
+  </li>
+
+
+  <a class="btn btn-primary" href="{% url 'ELIMINAR_PILOTO' piloto.nombre %}"> Eliminar Piloto</a
+  <a class="btn btn-primary" href="{% url 'ACTUALIZAR_PILOTO' piloto.nombre %}"> Editar Piloto</a> 
+
+  
+    
+  
+
 
   {% endfor %}
 </ul>

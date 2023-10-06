@@ -107,10 +107,31 @@ def eliminar_piloto(request, nombre_piloto):
     return render(request, "AppLuis/piloto.html", {'pilotos': todos})
 
 def eliminar_scuderia(request, nombre_scuderia):
-    scuderia_escogido = Scuderia.objects.get(nombre=nombre_scuderia)
+    scuderia_escogido = Scuderia.objects.get(scuderia=nombre_scuderia)
     scuderia_escogido.delete()
     todos = Scuderia.objects.all()
-    return render(request, "AppLuis/scuderia.html", {'todos': todos})
+    return render(request, "AppLuis/scuderia.html", {'scuderias': todos})
+
+def eliminar_clasificacion( request, nombre_clasificacion):
+    clasificacion_escogido = Clasificacion.objects.get(clasificacion=nombre_clasificacion)
+    clasificacion_escogido.delete()
+    todos = Clasificacion.objects.all()
+    return render ( request, "AppLuis/clasificacion.html",{'clasificaciones' : todos})
+
+#UPDATE 
+def actualizar_piloto(request, nombre_piloto):
+     piloto_escogido = Piloto.objects.get(nombre=nombre_piloto)
+     if request.method == "POST":
+        form = Crear_piloto( request.POST)
+        if form.is_valid():
+            info = form.cleaned_data
+            piloto_escogido.nombre = info['nombre']
+            piloto_escogido.apellido = info['apellido']
+            piloto_escogido.edad = info['edad']
+            piloto_escogido.correo = info['correo']
+
+            piloto_escogido.save()
+            return redirect("INICIO")
+  
 
 
-    

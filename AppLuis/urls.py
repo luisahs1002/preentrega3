@@ -29,6 +29,11 @@ urlpatterns = [
     # delete urls
     path("borrarpiloto/<nombre_piloto>/",eliminar_piloto,name="ELIMINAR_PILOTO"),
     path("borrarscuderia/<nombre_scuderia>/",eliminar_scuderia,name="ELIMINAR_SCUDERIA"),
+    path("borrarclasificacion/<nombre_clasificacion>/", eliminar_clasificacion, name="ELIMINAR_CLASIFICACION"),
+
+    # Update urls
+    path("editarpiloto/<nombre_piloto>/",actualizar_piloto, name="ACTUALIZAR_PILOTO"),
+
 
 
 

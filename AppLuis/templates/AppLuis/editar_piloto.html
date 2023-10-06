@@ -1,0 +1,13 @@
+{% extends "AppLuis/padre.html" %} {% load static %} {% block descripcion %}
+formulario para editar piloto
+
+<form action="" method="POST">
+  {% csrf_token %}
+
+  <table>
+    {{piloto1.as_table}}
+  </table>
+
+  <input type="submit" value="Actualizar" />
+</form>
+{% endblock %}
