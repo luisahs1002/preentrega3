@@ -33,6 +33,8 @@ urlpatterns = [
 
     # Update urls
     path("editarpiloto/<nombre_piloto>/",actualizar_piloto, name="ACTUALIZAR_PILOTO"),
+    path("editarscuderia/<nombre_scuderia>/",actualizar_scuderia, name="ACTUALIZAR_SCUDERIA"),
+    
 
 
 

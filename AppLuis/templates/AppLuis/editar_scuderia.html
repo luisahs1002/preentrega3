@@ -1,7 +1,8 @@
 {% extends "AppLuis/padre.html" %} {% load static %} {% block descripcion %}
-formulario para editar piloto
+formulario para editar scuderia
 
-<form action="" method="POST">  {% csrf_token %}
+<form action="" method="POST">
+  {% csrf_token %}
 
   <table>
     {{formulario.as_table}}

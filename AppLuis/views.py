@@ -122,16 +122,36 @@ def eliminar_clasificacion( request, nombre_clasificacion):
 def actualizar_piloto(request, nombre_piloto):
      piloto_escogido = Piloto.objects.get(nombre=nombre_piloto)
      if request.method == "POST":
-        form = Crear_piloto( request.POST)
+            form = Crear_piloto( request.POST)
+            if form.is_valid():
+                info = form.cleaned_data
+                piloto_escogido.nombre = info['nombre']
+                piloto_escogido.apellido = info['apellido']
+                piloto_escogido.edad = info['edad']
+                piloto_escogido.correo = info['correo']
+
+                piloto_escogido.save()
+                return redirect("INICIO")
+     else:
+        form = Crear_piloto(initial={"nombre":piloto_escogido.nombre,
+                                     "apellido":piloto_escogido.apellido,
+                                     "edad":piloto_escogido.edad,
+                                     "correo":piloto_escogido.correo})
+
+        return render ( request, "AppLuis/editar_piloto.html",{"formulario":form})
+
+def actualizar_scuderia(request, nombre_scuderia):
+    scuderia_escogido = Scuderia.objects.get(scuderia=nombre_scuderia)
+    if request.method == "POST":
+        form = Crear_scuderia(request.POST)
         if form.is_valid():
             info = form.cleaned_data
-            piloto_escogido.nombre = info['nombre']
-            piloto_escogido.apellido = info['apellido']
-            piloto_escogido.edad = info['edad']
-            piloto_escogido.correo = info['correo']
-
-            piloto_escogido.save()
+            scuderia_escogido.scuderia = info["scuderia"]
+            scuderia_escogido.save()
             return redirect("INICIO")
-  
+    else:
+        form = Crear_scuderia(initial={"scuderia":scuderia_escogido.scuderia})
+        return render( request, "AppLuis/editar_scuderia.html", {"formulario":form})
+    
 
 

@@ -1,36 +1,33 @@
-{% extends "AppLuis/padre.html" %} 
-{% load static %} 
-
-{% block titulo %} 
-
-Pagina de scuderia f1 
-
-{% endblock %} 
-
-{% block descripcion2 %} 
-
-Crea o ve las scuderias registradas 
-
-{% if scuderias %}
+{% extends "AppLuis/padre.html" %} {% load static %} {% block titulo %} Pagina
+de scuderia f1 {% endblock %} {% block descripcion2 %} Crea o ve las scuderias
+registradas {% if scuderias %}
 
 <ul>
-  {% for equipos in scuderias %}
-  <li> {{ equipos.scuderia}} </li>
-  <a class="btn btn-primary" href="{% url 'ELIMINAR_SCUDERIA' equipos.scuderia %}">Eliminar Scuderia</a>
+  <ul style="color: white">
+    {% for equipos in scuderias %}
+    <li>{{ equipos.scuderia}}</li>
+    <a
+      class="btn btn-primary"
+      href="{% url 'ELIMINAR_SCUDERIA' equipos.scuderia %}">Eliminar Scuderia</a
+    >
+    <a
+      class="btn btn-primary"
+      href='{% url "ACTUALIZAR_SCUDERIA" equípos.scuderia %}'>Editar Scuderia</a
+    >
 
-  {% endfor %}
+    {% endfor %}
+  </ul>
+  {% else %}
+
+  <h3>
+    >
+    <p style="color: aliceblue">algo esta mal</p>
+    {% endif %} {% endblock %} {% block url %}
+
+    <a class="btn btn-primary" href="{% url 'CREAR_SCUDERIA' %}"
+      >Crear Scuderia</a
+    >
+
+    {% endblock %}
+  </h3>
 </ul>
-{% else %}
-
-<h3>
-  
-  ><p style="color: aliceblue"> algo esta mal 
-  </p>
-  {% endif %} 
-  {% endblock %} 
-  
-  {% block url %}
-
-  <a class="btn btn-primary" href="{% url 'CREAR_SCUDERIA' %}">Crear Scuderia</a>
-
-  {% endblock %}
