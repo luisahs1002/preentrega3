@@ -1,0 +1,13 @@
+{% extends "AppLuis/padre.html" %} {% load static %} {% block descripcion%}
+
+<form action="{% url 'RESULTADO_CIRCUITO' %}" method="GET">
+  
+  
+  <p>  Circuito:<input type="text" name="circuito"> </p>
+    
+  
+    <input type="submit" value="confirmar">
+  </p>
+</form>
+
+{% endblock %}

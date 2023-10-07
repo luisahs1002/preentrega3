@@ -39,6 +39,17 @@ def crear_clasificacion(request):
         form = Crear_clasificacion()
     return render( request, "AppLuis/crear_clasificacion.html", {"qualy":form})
 
+def crear_circuito(request):
+    if request.method == "POST":
+        form = Crear_circuito(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect("INICIO")
+    else:
+        form = Crear_circuito()
+    return render( request, "AppLuis/crear_circuito.html",{"formulario": form})
+
+
 
 
 
@@ -78,6 +89,16 @@ def resultado_clasificacion(request):
         return render (request,"AppLuis/resultado_clasificacion.html",{'valor':pista, 'qualy':form})
     return render(request, "AppLuis/resultado_clasificacion.html")
 
+def buscar_circuito(request):
+    return render(request, "AppLuis/buscar_circuito.html")
+
+def resultado_circuito(request):
+    if request.GET['circuito']:
+        pista = request.GET['circuito']
+        form = Circuito.objects.filter(circuito__icontains=pista)
+        return render(request,"AppLuis/resultado_circuito.html", {"valor":pista , 'form':form})
+    return render(request, "AppLuis/resultado_circuito.html")
+
 
 #INICIO/ALL
 def inicio(request):
@@ -92,7 +113,8 @@ def scuderia(request):
     return render(request, "AppLuis/scuderia.html", {'scuderias': contexto})
 
 def circuito(request):
-    return render(request, "AppLuis/circuito.html")
+    all_circuitos = Circuito.objects.all()
+    return render(request, "AppLuis/circuito.html", {"circuitos": all_circuitos})
 
 def clasificacion(request):
     all_clasificacion = Clasificacion.objects.all()
@@ -117,6 +139,12 @@ def eliminar_clasificacion( request, nombre_clasificacion):
     clasificacion_escogido.delete()
     todos = Clasificacion.objects.all()
     return render ( request, "AppLuis/clasificacion.html",{'clasificaciones' : todos})
+
+def eliminar_circuito(request, nombre_circuito):
+    circuito_escogido = Circuito.objects.get(circuito=nombre_circuito)
+    circuito_escogido.delete()
+    todos = Circuito.objects.all()
+    return render ( request, "AppLuis/circuito.html",{'circuitos': todos})
 
 #UPDATE 
 def actualizar_piloto(request, nombre_piloto):
@@ -151,7 +179,37 @@ def actualizar_scuderia(request, nombre_scuderia):
             return redirect("INICIO")
     else:
         form = Crear_scuderia(initial={"scuderia":scuderia_escogido.scuderia})
-        return render( request, "AppLuis/editar_scuderia.html", {"formulario":form})
+        return render( request, 'AppLuis/editar_scuderia.html', {"formulario":form})
     
 
-
+def actualizar_clasificacion(request, nombre_clasificacion):
+    clasificacion_escogido = Clasificacion.objects.get(tiempo=nombre_clasificacion)
+    if request.method == "POST":
+        form = Crear_clasificacion(request.POST)
+        if form.is_valid():
+            info = form.cleaned_data
+            clasificacion_escogido.nombre_apellido = info["nombre_apellido"]
+            clasificacion_escogido.circuito = info["circuito"]
+            clasificacion_escogido.tiempo = info["tiempo"]
+            clasificacion_escogido.save()
+            return redirect("INICIO")
+    else:
+        form = Crear_clasificacion(initial={"nombre_apellido":clasificacion_escogido.nombre_apellido,
+                                            "circuito":clasificacion_escogido.circuito,
+                                            "tiempo":clasificacion_escogido.tiempo})
+        return render(request, "AppLuis/editar_clasificacion.html",{"formulario":form})
+    
+def actualizar_circuito(request, nombre_circuito):
+    circuito_escogido = Circuito.objects.get(circuito=nombre_circuito)
+    if request.method == "POST":
+        form = Crear_circuito(request.POST)
+        if form.is_valid():
+            info = form.cleaned_data
+            circuito_escogido.circuito = info['circuito']
+            circuito_escogido.tiempo = info['tiempo']
+            circuito_escogido.save()
+            return redirect("INICIO")
+    else:
+        form = Crear_circuito(initial={"circuito":circuito_escogido.circuito,
+                                       "tiempo":circuito_escogido.tiempo})
+        return render(request, "AppLuis/editar_circuito.html",{"formulario": form })

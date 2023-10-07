@@ -1,0 +1,18 @@
+{% extends "AppLuis/padre.html" %} {% load static %} {% block titulo%} resultado
+de la busqueda : {% endblock %} {% block descripcion%} {% if formulario %}
+
+<ul>
+  {% for tiempo in formulario %}
+  <li>circuito : {{tiempo.circuito}}</li>
+
+  {% endfor %}
+</ul>
+{% else %}
+
+<h3>
+  >
+  <p style="color: aliceblue">
+    no hay resultados que coincidan con la busqueda
+  </p>
+  {% endif %} {% endblock %}
+</h3>

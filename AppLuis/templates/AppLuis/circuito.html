@@ -1,3 +1,41 @@
-{% extends "AppLuis/padre.html" %} {% load static %} {% block titulo %}
-CIRCUITOS F1 {% endblock %} {% block descripcion %} ESTOS SON TODOS LOS
-CIRCUITOS DE LA F1 {% endblock %}
+{% extends "AppLuis/padre.html" %}
+ {% load static %} 
+ {% block titulo %}
+
+CIRCUITOS 
+
+{% endblock %} 
+{% block descripcion %} 
+
+ACA PODRAS VER LOS CIRCUITOS 
+
+{%endblock %} 
+{% block descripcion2 %}
+ {% if circuitos%}
+
+<ul>
+  <ul style="color: white">
+    {% for tiempo in circuitos %}
+    <li>Circuito: {{tiempo.circuito}}</li>
+    <a
+      class="btn btn-primary" href="{% url 'ELIMINAR_CLASIFICACION' tiempo.circuito  %}">Eliminar Circuito</a>
+    <a
+      class="btn btn-primary" href="{% url 'ACTUALIZAR_CLASIFICACION' tiempo.circuito %}">Editar Circuito</a>
+
+    {% endfor %} {% else %}
+  </ul>
+
+  <h3>
+    >
+    <p style="color: aliceblue">
+      no hay resultados que coincidan con la busqueda
+    </p>
+    {% endif %} {% endblock %} {% block url %}
+
+    <a class="btn btn-primary" href="{% url 'CREAR_CIRCUITO' %}"
+      >Crear Circuito</a
+    >
+
+    {% endblock %}
+  </h3>
+</ul>

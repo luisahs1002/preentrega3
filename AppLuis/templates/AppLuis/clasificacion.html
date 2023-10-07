@@ -20,10 +20,9 @@ LOS PARTICIPANTES
   {% for tiempo in clasificaciones %}
   <li>Circuito: {{tiempo.circuito}} ----- tiempo : {{tiempo.tiempo}}</li>
   <a
-    class="btn btn-primary"
-    href="{% url 'ELIMINAR_CLASIFICACION' tiempo.tiempo  %}"
-    >Eliminar Tiempo</a
-  >
+    class="btn btn-primary" href="{% url 'ELIMINAR_CLASIFICACION' tiempo.tiempo  %}">Eliminar Tiempo</a>
+  <a
+    class="btn btn-primary" href="{% url 'ACTUALIZAR_CLASIFICACION' tiempo.tiempo%}">Editar Tiempo</a>
 
   {% endfor %}
   

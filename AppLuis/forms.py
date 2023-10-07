@@ -16,4 +16,9 @@ class Crear_clasificacion(forms.ModelForm):
     class Meta:
         model = Clasificacion
         fields = ['nombre_apellido', 'circuito', 'tiempo']
+
+class Crear_circuito(forms.ModelForm):
+    class Meta:
+        model = Circuito
+        fields = ['circuito','tiempo']
         

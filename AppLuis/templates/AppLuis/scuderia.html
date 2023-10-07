@@ -7,13 +7,9 @@ registradas {% if scuderias %}
     {% for equipos in scuderias %}
     <li>{{ equipos.scuderia}}</li>
     <a
-      class="btn btn-primary"
-      href="{% url 'ELIMINAR_SCUDERIA' equipos.scuderia %}">Eliminar Scuderia</a
-    >
+      class="btn btn-primary" href="{% url 'ELIMINAR_SCUDERIA' equipos.scuderia %}">Eliminar Scuderia</a>
     <a
-      class="btn btn-primary"
-      href='{% url "ACTUALIZAR_SCUDERIA" equípos.scuderia %}'>Editar Scuderia</a
-    >
+      class="btn btn-primary" href="{% url 'ACTUALIZAR_SCUDERIA' equipos.scuderia %}">Editar Scuderia</a>
 
     {% endfor %}
   </ul>
@@ -24,9 +20,7 @@ registradas {% if scuderias %}
     <p style="color: aliceblue">algo esta mal</p>
     {% endif %} {% endblock %} {% block url %}
 
-    <a class="btn btn-primary" href="{% url 'CREAR_SCUDERIA' %}"
-      >Crear Scuderia</a
-    >
+    <a class="btn btn-primary" href="{% url 'CREAR_SCUDERIA' %}">Crear Scuderia</a>
 
     {% endblock %}
   </h3>
