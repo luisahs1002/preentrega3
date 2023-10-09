@@ -1,0 +1,26 @@
+{% extends "AppLuis/padre.html" %}
+ {% load static %} 
+ {% block titulo %} 
+
+ ACA SE PUEDE INICIAR SESION
+ 
+ {% endblock %} 
+
+
+ 
+ {% block descripcion %}
+
+
+
+<form action="" method="POST">  {% csrf_token %}
+
+   <ul style="color: white">
+   <table>
+    {{formulario.as_table}}
+   </table>
+
+  <input type="submit" value="Iniciar Sesion"/>
+</form>
+
+
+{% endblock %}

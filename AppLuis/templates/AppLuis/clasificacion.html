@@ -1,48 +1,43 @@
-{% extends "AppLuis/padre.html" %} 
-{% load static %} 
-{% block titulo %}
-CLASIFICACION 
-{% endblock %} 
+{% extends "AppLuis/padre.html" %} {% load static %} {% block titulo %}
+CLASIFICACION {% endblock %} 
 
-{% block descripcion %}
+{% block descripcion %} 
 
-ACA PODRAS VER LA QUALY DE
-LOS PARTICIPANTES 
+ACA PODRAS VER LA QUALY DE LOS PARTICIPANTES 
 
-{% endblock %} 
+{% endblock %}
 
-{% block descripcion2 %} 
+{% block descripcion2 %}
 
-{% if clasificaciones%}
+{% if clasificaciones %}
 
 <ul>
   <ul style="color: white">
-  {% for tiempo in clasificaciones %}
-  <li>Circuito: {{tiempo.circuito}} ----- tiempo : {{tiempo.tiempo}}</li>
-  <a
-    class="btn btn-primary" href="{% url 'ELIMINAR_CLASIFICACION' tiempo.tiempo  %}">Eliminar Tiempo</a>
-  <a
-    class="btn btn-primary" href="{% url 'ACTUALIZAR_CLASIFICACION' tiempo.tiempo%}">Editar Tiempo</a>
+    {% for tiempo in clasificaciones %}
+    <li>Circuito: {{tiempo.circuito}} ----- tiempo : {{tiempo.tiempo}} </li>
+    <a
+      class="btn btn-primary" href="{% url 'ELIMINAR_CLASIFICACION' tiempo.tiempo  %}">Eliminar Tiempo</a>
+    <a
+      class="btn btn-primary" href="{% url 'ACTUALIZAR_CLASIFICACION' tiempo.tiempo %}">Editar Tiempo</a>
 
-  {% endfor %}
-  
-  {% else %}
+    {% endfor %} {% else %}
+  </ul>
+
+  <h3>
+    >
+    <p style="color: aliceblue">
+      no hay resultados que coincidan con la busqueda
+    </p>
+    {% endif %} 
+    
+    {% endblock %} 
+    
+    {% block url %}
+
+    <a class="btn btn-primary" href="{% url 'CREAR_CLASIFICACION' %}"
+      >Crear Qualy</a
+    >
+
+    {% endblock %}
+  </h3>
 </ul>
-
-<h3>
-  >
-  <p style="color: aliceblue">
-    no hay resultados que coincidan con la busqueda
-  </p>
-  {% endif %} 
-  
-  {% endblock %} 
-  
-  {% block url %}
-
-  <a class="btn btn-primary" href="{% url 'CREAR_CLASIFICACION' %}"
-    >Crear Qualy</a
-  >
-
-  {% endblock %}
-</h3>

@@ -1,5 +1,7 @@
 from django import forms
 from .models import *
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User 
 
 
 class Crear_piloto(forms.ModelForm):
@@ -21,4 +23,31 @@ class Crear_circuito(forms.ModelForm):
     class Meta:
         model = Circuito
         fields = ['circuito','tiempo']
+
+class registrarse(UserCreationForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model = User
+        fields = ['username','email','password1','password2']
+
+class Editar_registro(UserCreationForm):
+     email = forms.EmailField()
+     
+     class Meta:
+        model = User
+        fields = ['email','first_name','last_name','password1','password2'] 
+
+class avatar_formulario(forms.ModelForm):
+    class Meta:
+        model = Avatar
+        fields = "__all__"
+
+
+
+        
+
+        
+
+
         

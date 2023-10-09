@@ -1,5 +1,6 @@
 from django.urls import path
 from AppLuis.views import *
+from django.contrib.auth.views import LogoutView
 
 
 
@@ -40,6 +41,12 @@ urlpatterns = [
     path("editarscuderia/<nombre_scuderia>/",actualizar_scuderia, name="ACTUALIZAR_SCUDERIA"),
     path("editarclasificacion/<nombre_clasificacion>/",actualizar_clasificacion, name="ACTUALIZAR_CLASIFICACION"),
     path("editarcircuito/<nombre_circuito>/", actualizar_circuito, name="ACTUALIZAR_CIRCUITO"),
+
+    #LOGIN, LOGOUT, REGISTRAR
+    path("login/", login_view, name = "INICIO SESION"),
+    path("registrar/", registrar, name="REGISTRAR"),
+    path("logout/",LogoutView.as_view(template_name= "AppLuis/logout.html"),name="LOGOUT"),
+    path("editar/",editar_usuario, name= "EDITAR"),
 
 
 

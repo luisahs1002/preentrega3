@@ -18,9 +18,9 @@ ACA PODRAS VER LOS CIRCUITOS
     {% for tiempo in circuitos %}
     <li>Circuito: {{tiempo.circuito}}</li>
     <a
-      class="btn btn-primary" href="{% url 'ELIMINAR_CLASIFICACION' tiempo.circuito  %}">Eliminar Circuito</a>
+      class="btn btn-primary" href="{% url 'ELIMINAR_CIRCUITO' tiempo.circuito  %}">Eliminar Circuito</a>
     <a
-      class="btn btn-primary" href="{% url 'ACTUALIZAR_CLASIFICACION' tiempo.circuito %}">Editar Circuito</a>
+      class="btn btn-primary" href="{% url 'ACTUALIZAR_CIRCUITO' tiempo.circuito %}">Editar Circuito</a>
 
     {% endfor %} {% else %}
   </ul>

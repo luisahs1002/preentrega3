@@ -1,8 +1,8 @@
 {% extends "AppLuis/padre.html" %} {% load static %} {% block titulo%} resultado
-de la busqueda : {% endblock %} {% block descripcion%} {% if formulario %}
+de la busqueda : {% endblock %} {% block descripcion%} {% if form %}
 
 <ul>
-  {% for tiempo in formulario %}
+  {% for tiempo in form %}
   <li>circuito : {{tiempo.circuito}}</li>
 
   {% endfor %}

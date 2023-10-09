@@ -6,4 +6,5 @@ admin.site.register(Piloto)
 admin.site.register(Scuderia)
 admin.site.register(Circuito)
 admin.site.register(Clasificacion)
+admin.site.register(Avatar)
 

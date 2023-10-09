@@ -1,0 +1,14 @@
+{% extends "AppLuis/padre.html" %} {% load static %} {% block titulo %}
+REGISTRAR {% endblock %} {% block descripcion2 %}
+
+<form action="" method="POST">
+  {% csrf_token %}
+  
+  <ul style="color: white">
+  <table>
+    {{form.as_table}}
+  </table>
+
+  <input type="submit" value="Registrarse " />
+</form>
+{% endblock %}

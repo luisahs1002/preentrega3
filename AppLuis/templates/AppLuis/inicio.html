@@ -63,9 +63,24 @@
               <a class="nav-link" href="{% url 'CIRCUITO' %}">Circuito</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'CLASIFICACION' %}"
-                >Clasificacion</a
-              >
+              <a class="nav-link" href="{% url 'CLASIFICACION' %}">Clasificacion</a>
+            </li>  
+            {% if request.user.is_authenticated %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'LOGOUT' %}">Salir</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'EDITAR' %}">Edit</a>
+                  </li>
+            {% else %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'INICIO SESION' %}"> login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'REGISTRAR' %}">Registrarse</a>
+                  </li>
+            {% endif %}
+           
             </li>
           </ul>
         </div>
@@ -80,9 +95,10 @@
           <div class="text-center">
             <h1 class="mx-auto my-0 text-uppercase">
               {% block titulo %}
-              El show de la Formula 1
+              El show de la Formula 1 {{usuario.name}}
               {% endblock %}
             </h1>
+            <h1> {{mensaje}} </h1>
             <h2 class="text-white-50 mx-auto mt-2 mb-5">
               {% block descripcion %} {% endblock %}
             </h2>

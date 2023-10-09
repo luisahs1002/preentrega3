@@ -64,9 +64,25 @@
               <a class="nav-link" href="{% url 'CIRCUITO' %}">Circuito</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'CLASIFICACION' %}"
-                >Clasificacion</a
-              >
+              <a class="nav-link" href="{% url 'CLASIFICACION' %}">Clasificacion</a>
+            </li>
+            {% if request.user.is_authenticated %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'LOGOUT' %}">Salir</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'EDITAR' %}">Edit</a>
+                  </li>
+            {% else %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'INICIO SESION' %}">login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'REGISTRAR' %}">Registrar</a>
+                  </li>
+                {% endif %}
+            
+            
             </li>
           </ul>
         </div>
