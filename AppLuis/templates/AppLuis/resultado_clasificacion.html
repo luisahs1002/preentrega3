@@ -3,7 +3,9 @@ de la busqueda : {% endblock %} {% block descripcion%} {% if qualy %}
 
 <ul>
   {% for clasificacion in qualy %}
-  <li>circuito : {{clasificacion.circuito}}</li>
+  <li>
+    Circuito: {{clasificacion.circuito}} ---- Tiempo: {{clasificacion.tiempo}}
+  </li>
 
   {% endfor %}
 </ul>

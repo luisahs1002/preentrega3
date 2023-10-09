@@ -48,6 +48,9 @@ urlpatterns = [
     path("logout/",LogoutView.as_view(template_name= "AppLuis/logout.html"),name="LOGOUT"),
     path("editar/",editar_usuario, name= "EDITAR"),
 
+    # AVATAR
+    path("avatar/", agregar_avatar, name="AGREGAR_AVATAR")
+
 
 
 

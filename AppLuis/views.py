@@ -8,6 +8,7 @@ from django.contrib.auth.forms import AuthenticationForm,UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 
 
@@ -301,7 +302,20 @@ def editar_usuario(request):
                                          'last_name': usuario.last_name})
     return render( request, "AppLuis/editar_perfil.html", {'formulario': form , 'usuario': usuario })
 
-
+@login_required
+def agregar_avatar(request):
+    if request.method =="POST":
+        form = avatar_formulario( request.POST, request.FILES)
+        if form.is_valid():
+            usuario = request.user
+            imagen = form.cleaned_data['imagen']
+            avatar = Avatar(user = usuario, imagen = imagen )
+            avatar.save()
+            return render( request, "AppLuis/inicio.html")
+    
+    else:
+        form = avatar_formulario()
+        return render ( request, "AppLuis/agregar_avatar.html", {"form": form})
 
 
 

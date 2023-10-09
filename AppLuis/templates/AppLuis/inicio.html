@@ -66,6 +66,14 @@
               <a class="nav-link" href="{% url 'CLASIFICACION' %}">Clasificacion</a>
             </li>  
             {% if request.user.is_authenticated %}
+                {% if request.user.avatar_set.exist %}
+                      <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{ request.user.avatar_set.first.imagen.url }}" alt="Avatar de {{ request.user.username }}" class="rounded-circle" withd="40"></a>
+                      <a class="btn btn-danger" href="{% url 'AGREGAR_AVATAR' %}"> Cambiar Avatar</a> 
+                {% else %}
+                      <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark prop-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{% static 'no-avatar.png' %}" alt="user" class="rounded-circle" width="31"></a>
+                      <a class="btn btn-danger" href="{% url 'AGREGAR_AVATAR' %}"> Cambiar Avatar</a> 
+                {% endif %}
+                <p class="text-muted small mb-4 mb-lg-0"> Hola, {{user.username}}!!.</p>
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'LOGOUT' %}">Salir</a>
                   </li>

@@ -1,0 +1,20 @@
+{% extends "AppLuis/padre.html" %}
+ {% load static %} 
+ {% block titulo %} 
+
+ AGREGAR AVATAR 
+ 
+ {% endblock %} 
+
+
+ 
+ {% block descripcion2 %}
+
+
+    <h1>Cargar Avatar</h1>
+    <ul style="color: white"></ul>
+    <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Actualizar">
+    </form>
+{% endblock %}
