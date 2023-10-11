@@ -16,3 +16,12 @@ Mi proyecto se trata de una página que su función principal es registrar pilot
   * En la página se puede registrar, iniciar sesión y finalizar la sesión con su respectivo botón de manera satisfactoria
   # Usuario Admin
   * luisahs , contraseña : hamilton77
+  # SOBRE MI
+  * Mi nombre es Luis y tengo 24 años
+  * Soy venezolano y me mude a chile hace 4 años
+  * Mis padres y mi hermana se encuentran todavía en venezuela
+  * Actualmente trabajo en un casino
+  * Tengo un certificado con coderhouse de Bussines Analitycs y de Excel avanzado
+  * Me pague este curso porque me dio curiosidad saber cómo era esto y no tenía ningún conocimiento previo sobre ello
+  * Me gusto este curso y quisiera seguir ampliando mis conocimientos y puliendolos para poder conseguir un trabajo relacionado a esto
+  * Por temas de tiempo les escribo sobre mi por este medio
