@@ -250,7 +250,7 @@ def actualizar_clasificacion(request, nombre_clasificacion):
 def inicio(request):
     return render(request, "AppLuis/inicio.html")
 
-
+# View para iniciar sesion
 def login_view(request):
     if request.method == "POST":
         form = AuthenticationForm( request, data = request.POST)
@@ -268,7 +268,7 @@ def login_view(request):
         form = AuthenticationForm()
     return render( request, "AppLuis/login.html",{"formulario": form})
 
-
+# VIEW PARA REGISTRARSE
 def registrar(request):
     
     if request.method == "POST":
@@ -281,7 +281,7 @@ def registrar(request):
         form = registrarse()
         return render(request, "AppLuis/registrar.html", {"form": form })
     
-    
+    # VIEW PARA EDITAR EL USUARIO
 def editar_usuario(request):
 
     usuario = request.user
