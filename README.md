@@ -25,3 +25,5 @@ Mi proyecto se trata de una página que su función principal es registrar pilot
   * Me pague este curso porque me dio curiosidad saber cómo era esto y no tenía ningún conocimiento previo sobre ello
   * Me gusto este curso y quisiera seguir ampliando mis conocimientos y puliendolos para poder conseguir un trabajo relacionado a esto
   * Por temas de tiempo les escribo sobre mi por este medio
+    # Caso De Prueba
+    https://1drv.ms/x/s!Ap0Vx4--j1DAj0WmJmJpm8seDeGJ?e=AVEPcy
